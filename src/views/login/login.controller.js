@@ -1,9 +1,8 @@
-loginCtrl.$inject = ['$scope', '$uibModal', 'httpRequest'];
-export default function loginCtrl($scope, $uibModal, httpRequest) {
+loginCtrl.$inject = ['$scope', '$uibModal', 'httpRequestSrv', 'commonSrv'];
+export default function loginCtrl($scope, $uibModal, httpRequestSrv, commonSrv) {
 	$scope.name = 'Mukuro Rokudo';
 
-
-	httpRequest.get('test', {a: 1}).then(res => {
+	httpRequestSrv.get('test', {a: 1}).then(res => {
 
 	}, error => {
 

@@ -151,7 +151,7 @@ module.exports = function () {
 				_commonComponents: path.resolve(APP_PATH, 'commonComponents'),
 				_config: path.resolve(APP_PATH, 'config'),
 				_assets: path.resolve(APP_PATH, 'assets'),
-				_server: path.resolve(APP_PATH, 'server')
+				_service: path.resolve(APP_PATH, 'service')
 			}
 		}
 	};
