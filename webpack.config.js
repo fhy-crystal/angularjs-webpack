@@ -25,6 +25,7 @@ module.exports = function () {
 				'angular', 
 				'angular-ui-router', 
 				'angular-ui-bootstrap',
+				'angular-touch',
 				'lib-flexible'
 			],
 			'app': './app.js',
