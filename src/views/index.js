@@ -1,5 +1,5 @@
-import login from './login';
+import demo from './demo';
 
-export default angular.module('components', [
-	login,
+export default angular.module('views', [
+	demo,
 ]).name;
