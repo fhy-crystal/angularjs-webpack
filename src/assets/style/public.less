@@ -1,0 +1,9 @@
+.bg-image(@url) {
+	background-image: url('@{url}.png');
+	[date-dpr = '2'] &{
+		background-image: url('@{url}@2x.png');
+	}
+	[date-dpr = '3'] &{
+		background-image: url('@{url}@3x.png');
+	}
+}
