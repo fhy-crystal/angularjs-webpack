@@ -1,6 +1,5 @@
-import angular from 'angular';
-import userModal from './modal/modal.js';
+import wToast from './toast'
 
 export default angular.module('commonComponents', [
-	userModal
+	wToast
 ]).name;
