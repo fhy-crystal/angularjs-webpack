@@ -2,6 +2,8 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
 import ngTouch from 'angular-touch';
+import ngInfiniteScroll from 'ng-infinite-scroll';
+import ngSortable from 'angular-sortable-view';
 
 
 import views from '_views';
@@ -18,6 +20,8 @@ angular.module('webapp', [
 	uiRouter,
 	uiBootstrap,
 	ngTouch,
+	ngInfiniteScroll,
+	'angular-sortable-view',
 	views,
 	commonComponents,
 	commonService

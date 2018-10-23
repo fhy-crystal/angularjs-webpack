@@ -1,13 +1,8 @@
-<div class="carouselPage">
-	<h1>carousel</h1>
+<div class="carouselPage pdt88">
+	<w-header title="carousel"></w-header>
 	<div uib-carousel active="activeIdx" interval="3000">
 		<div uib-slide ng-repeat="slide in slides track by $index" index="$index">
 			<img ng-src="{{slide.imageUrl}}">
 		</div>
 	</div>
-	<!-- <div uib-carousel active="activeIdx" interval="3000">
-		<div uib-slide ng-repeat="slide in slides track by $index" index="$index">
-			<div ng-style="{'background-image': 'url(' + slide.imageUrl + ')'}"></div>
-		</div>
-	</div> -->
 </div>
