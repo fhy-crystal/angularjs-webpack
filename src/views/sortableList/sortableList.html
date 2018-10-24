@@ -1,27 +1,26 @@
 <div class="sortableList pdt88">
 	<w-header title="sortable list"></w-header>
 	<dl class="list" sv-root sv-part="activityList" sv-on-sort="sortable($item, $partFrom, $partTo, $indexFrom, $indexTo)">
-		<dt class="list_item" ng-repeat="item in activityList track by $index" ng-swipe-left="swipeLeft($index)" ng-swipe-right="swipeRight($index)" sv-element>
-			<div class="item_left">
-				<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1163266585,1990963493&fm=27&gp=0.jpg" alt="avatar" ng-hide="item.onSwipe" sv-handlegulp
-
-
-				>
-				<div class="item_text">
-					<div class="title">
-						{{item.title}}
-					</div>
-					<div class="remark">
-						上架状态：{{item.status}}
-					</div>
-					<div class="remark">
-						创建时间：{{item.timestamp | date: "yyyy.MM.dd"}}
+		<div infinite-scroll="getActivityList()" infinite-scroll-disabled="isLoad">
+			<dt class="list_item" ng-repeat="item in activityList track by $index" ng-swipe-left="swipeLeft($index)" ng-swipe-right="swipeRight($index)" sv-element>
+				<div class="item_left">
+					<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1163266585,1990963493&fm=27&gp=0.jpg" alt="avatar" ng-hide="item.onSwipe" sv-handle>
+					<div class="item_text">
+						<div class="title">
+							{{item.title}}
+						</div>
+						<div class="remark">
+							上架状态：{{item.status}}
+						</div>
+						<div class="remark">
+							创建时间：{{item.timestamp | date: "yyyy.MM.dd"}}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="item_right" ng-show="item.onSwipe" ng-click="changeStatus()">
-				上架
-			</div>
-		</dt>
+				<div class="item_right" ng-show="item.onSwipe" ng-click="changeStatus()">
+					上架
+				</div>
+			</dt>
+		</div>
 	</dl>
 </div>

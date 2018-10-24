@@ -2,14 +2,22 @@ import './sortable.less'
 ctrl.$inject = ['$scope', 'toastSrv'];
 export default function ctrl($scope, toastSrv) {
 	$scope.activityList = [];
+	$scope.isLoad = false;
 	let timestamp = (new Date()).getTime();
-	for (var i = 0; i < 10; i++) {
-		$scope.activityList.push({
-			title: `title${i}`,
-			onSwipe: false,
-			status: '下架',
-			timestamp: timestamp
-		})
+	let total = 0;
+	$scope.getActivityList = function() {
+		for (var i = 0; i < 10; i++) {
+			$scope.activityList.push({
+				title: `title${i}`,
+				onSwipe: false,
+				status: '下架',
+				timestamp: timestamp
+			})
+		}
+		total ++
+		if (total == 3) {
+			$scope.isLoad = true;
+		}
 	}
 
 	$scope.swipeLeft = function(idx) {
