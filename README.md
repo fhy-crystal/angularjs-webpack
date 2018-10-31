@@ -17,3 +17,27 @@ $ npm run dev
 ```
 
 go to [http://localhost:7080](http://localhost:7080) in your browser.
+
+
+# Table of Contents
+
+* [button](#button)
+
+
+## button
+* normal button
+	`<w-button text="normal button"></w-button>`
+* displayed button
+	`<w-button disabled="true" text="normal button"></w-button>`
+* small button
+	`<w-button size="wBtn_sm" text="small button"></w-button>`
+* middle button
+	`<w-button size="wBtn_md" text="middle button"></w-button>`
+* large button
+	`<w-button size="wBtn_lg" text="large button"></w-button>`
+* border button
+	`<w-button type="wBtn_border" text="border button"></w-button>`
+* text button
+	`<w-button type="wBtn_text" text="text button"></w-button>`
+
+
