@@ -22,13 +22,14 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 # Table of Contents
 
 * [button](#button)
+* [toast](#toast)
 
 
 ## button
 * normal button
 
 	`<w-button text="normal button"></w-button>`
-	
+
 * displayed button
 
 	`<w-button disabled="true" text="normal button"></w-button>`
@@ -52,5 +53,20 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * text button
 
 	`<w-button type="wBtn_text" text="text button"></w-button>`
+
+## toast
+
+```
+// html
+<w-toast></w-toast>
+
+// js
+ctrl.$inject = ['$scope', 'toastSrv'];
+export default function ctrl($scope, toastSrv) {
+	$scope.toast = () => {
+		toastSrv('test')
+	}
+}
+```
 
 
