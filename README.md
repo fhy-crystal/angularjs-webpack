@@ -23,6 +23,8 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 
 * [button](#button)
 * [toast](#toast)
+* [carousel](#carousel)
+* [sortable list](#sortable list)
 
 
 ## button
@@ -68,5 +70,25 @@ export default function ctrl($scope, toastSrv) {
 	}
 }
 ```
+
+## carousel
+
+This carousel uses the component in angular-ui-bootstrap. You can read more at [angular-ui-bootstrap](https://angular-ui.github.io/bootstrap/#!#carousel).
+
+If you want to use ng-touch to swipe the carousel, please do remember to import angular-ui-bootstrap@1.3.3, if you used the lastest one, it does not work any more.
+
+## sortable list
+
+swipe right to open the hidden button.
+
+drag image in list to reorder.
+
+
+
+
+
+
+
+
 
 
