@@ -24,7 +24,7 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * [button](#button)
 * [toast](#toast)
 * [carousel](#carousel)
-* [sortable list](#sortable list)
+* [sortableList](#sortableList)
 
 
 ## button
