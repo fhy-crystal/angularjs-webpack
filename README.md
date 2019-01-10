@@ -1,5 +1,5 @@
 # angularjs-webpack
-this is a project with angularjs 1.7 / webpack 1.13 / lib-flexible / ES6
+this is a project with angularjs 1.7 / webpack 1.13 / lib-flexible / ES6 / jquery
 
 ### Quick start
 ```bash
@@ -14,6 +14,12 @@ $ npm install
 
 # start the server
 $ npm run dev
+
+# run build
+$ npm run build
+
+# run build in mini
+$ npm run build:mini // you can get the param(mini) in you project
 ```
 
 go to [http://localhost:7080](http://localhost:7080) in your browser.

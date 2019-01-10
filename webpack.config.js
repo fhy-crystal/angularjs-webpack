@@ -27,8 +27,8 @@ module.exports = function () {
 				'angular-ui-bootstrap',
 				'angular-touch',
 				'angular-sortable-view',
-
-				'lib-flexible'
+				'lib-flexible',
+				'jquery'
 			],
 			'app': './app.js',
 		},
@@ -122,6 +122,11 @@ module.exports = function () {
 			// Reference: https://github.com/webpack/extract-text-webpack-plugin
 			// Extract css files
 			new ExtractTextPlugin(isProd ? '[name].[chunkhash].css' : '[name].css'),
+			new webpack.ProvidePlugin({
+				$: 'jquery',
+				jQuery: 'jquery',
+				'window.jQuery': 'jquery'
+			})
 		],
 
 		/**
