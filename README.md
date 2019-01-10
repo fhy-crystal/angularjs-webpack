@@ -31,6 +31,7 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * [toast](#toast)
 * [carousel](#carousel)
 * [sortableList](#sortableList)
+* [swiper](#swiper)
 
 
 ## button
@@ -89,6 +90,19 @@ swipe right to open the hidden button.
 
 drag image in list to reorder.
 
+## swiper
+
+if your customer does not like the animate in carousel, you can use swiper who based on jquery. So you should import jquery first. Just import jquery in you vendor.js, and add the code below in webpack.config.js
+
+```
+new webpack.ProvidePlugin({
+	$: 'jquery',
+	jQuery: 'jquery',
+	'window.jQuery': 'jquery'
+})
+```
+
+After that, you can new swiper in your project. If you want more information about swiper, please click [here](https://www.swiper.com.cn/).
 
 
 

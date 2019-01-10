@@ -1,0 +1,11 @@
+<div class="swiperPage pdt88">
+	<w-header title="swiper"></w-header>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" ng-repeat="slide in slides track by $index" data-item="{{slide}}">
+				<img ng-src="{{slide.imageUrl}}">
+			</div>
+		</div>
+		<div id="swiper-pagination"></div>
+	</div>
+</div>
