@@ -22,13 +22,9 @@ module.exports = function () {
 
 		entry: {
 			'vendor': [
-				'angular', 
-				'angular-ui-router', 
-				'angular-ui-bootstrap',
 				'angular-touch',
 				'angular-sortable-view',
-				'lib-flexible',
-				'jquery'
+				'lib-flexible'
 			],
 			'app': './app.js',
 		},
@@ -37,6 +33,12 @@ module.exports = function () {
 			publicPath: isProd ? './' : '/',
 			filename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js',
 			chunkFilename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js'
+		},
+		externals: {
+			jquery: 'jQuery',
+			angular: 'angular',
+			uiRouter: 'angular-ui-router',
+			uiBootstrap: 'angular-ui-bootstrap'
 		},
 		/*
 		 * Options affecting the normal modules.
@@ -101,7 +103,7 @@ module.exports = function () {
 		plugins: [
 			// add user defined string when cli
 			new webpack.DefinePlugin({
-				__PRO_ENV__: JSON.stringify(process.env.NODE_ENV)
+				__PRO_ENV__: JSON.parse(JSON.stringify(process.env.NODE_ENV))
 			}),
 			// vendor
 			new webpack.optimize.CommonsChunkPlugin({

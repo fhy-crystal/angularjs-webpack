@@ -28,3 +28,28 @@ angular.module('webapp', [
 ])
 .config(appRouter)
 .constant('ENV', appEnv)
+.run(['$location', 'httpRequest', 'commonJs', 'toast'], function($location, httpRequest, commonJs, toast) {
+	let isWechat = commonJs.wechatBrowser();
+	if (isWechat) {
+		let params = {
+			url: $location.$$absUrl.split('#')[0]
+		};
+		// get signature from backend then config
+		httpRequest.get('signature', params).then(res => {
+			wx.config({
+				debug: false,
+				appId: res.data.appId,
+				timestamp: res.data.timestamp,
+				nonceStr: res.data.nonceStr,
+				signature: res.data.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'onMenuShareQQ'
+				]
+			})
+		}, error => {
+			toast(error);
+		})
+	}
+})
