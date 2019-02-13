@@ -53,4 +53,33 @@ angular.module('webapp', [
 		})
 	}
 }])
-
+.directive('moveDirective', function() {
+	let obj = {
+		restrict: 'ECMA',
+		link: function(scope, element, attr) {
+			let oBox = element[0];
+			oBox.onmousedown = function(ev) {
+				let event = ev || window.event,
+					disW = event.clientX - oBox.offestLeft,
+					disH = event.clientY - oBox.offsetTop;
+				event.preventDefault();
+				document.onmousemove = function(ev) {
+					let event = ev || window.event,
+						posX = event.clientX - disW,
+						posY = evnet.clientY - disH;
+					attr.$set('data-x', posX);
+					attr.$set('data-y', posY);
+					oBox.style.left = posX + 'px';
+					oBox.style.top = posY + 'px';
+				}
+				document.onmouseup = function() {
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oBox.releaseCapture && oBox.releaseCapture();
+				}
+			}
+			oBox.setCapture && oBox.setCapture();
+		}
+	}
+	return obj;
+})
