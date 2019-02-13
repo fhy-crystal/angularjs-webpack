@@ -36,6 +36,7 @@ export default function commonJs($window) {
 	this.removeAllSession = () => {
 		$window.sessionStorage.clear();
 	},
+	// wechat share
 	this.wxShare = (link=$window.location.href, shareTitle='angularjs-webpack', desc='descript', imgUrl="http://www.baidu.com", successcall) => {
 		if (this.wechatBrowser()) {
 			wx.ready(function() {
@@ -53,7 +54,7 @@ export default function commonJs($window) {
 
 					},
 					fail: function(res) {
-						
+
 					}
 				})
 			})

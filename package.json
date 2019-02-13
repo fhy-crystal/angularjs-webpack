@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV={'env':'normal','branch':'sit'} webpack-dev-server --hot --inline --open --progress",
+    "dev": "cross-env NODE_ENV='{\"env\":\"normal\",\"branch\":\"test\"}' webpack-dev-server --hot --inline --open --progress",
     "dev:mini": "cross-env NODE_ENV={'env':'mini','branch':'test'} webpack-dev-server --hot --inline --open --progress",
-    "build": "rimraf www && cross-env NODE_ENV={'env':'nromal','branch':'prod'} webpack -p --bail --progress --profile --colors"
+    "build": "rimraf www && cross-env NODE_ENV={'env':'normal','branch':'prod'} webpack -p --bail --progress --profile --colors"
   },
   "keywords": [
     "webpack",

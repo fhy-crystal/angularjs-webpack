@@ -32,6 +32,7 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * [carousel](#carousel)
 * [sortableList](#sortableList)
 * [swiper](#swiper)
+* [cross-env](#cross-env)
 
 
 ## button
@@ -104,7 +105,19 @@ new webpack.ProvidePlugin({
 
 After that, you can new swiper in your project. If you want more information about swiper, please click [here](https://www.swiper.com.cn/).
 
+## cross-env
 
+This plugin can help you have a single command without worrying about setting or using the environment variable properly for the platform
+
+```
+// work on Windows
+cross-env NODE_ENV={env:'normal',branch:'test'} 
+cross-env NODE_ENV={'env':'normal','branch':'test'}
+cross-env NODE_ENV={\\\"env\\\":\\\"normal\\\",\\\"branch\\\":\\\"test\\\"}
+
+// work on Mac
+cross-env NODE_ENV='{\"env\":\"normal\",\"branch\":\"test\"}'
+```
 
 
 
