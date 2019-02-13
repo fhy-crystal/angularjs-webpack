@@ -33,6 +33,7 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * [sortableList](#sortableList)
 * [swiper](#swiper)
 * [cross-env](#cross-env)
+* [dragImage](#dragImage)
 
 
 ## button
@@ -119,7 +120,9 @@ cross-env NODE_ENV={\\\"env\\\":\\\"normal\\\",\\\"branch\\\":\\\"test\\\"}
 cross-env NODE_ENV='{\"env\":\"normal\",\"branch\":\"test\"}'
 ```
 
+## drag image
 
+It only works fine at pc platform. I am still working on it for it can work on mobile.
 
 
 
