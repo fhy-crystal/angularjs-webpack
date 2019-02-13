@@ -60,13 +60,13 @@ angular.module('webapp', [
 			let oBox = element[0];
 			oBox.onmousedown = function(ev) {
 				let event = ev || window.event,
-					disW = event.clientX - oBox.offestLeft,
+					disW = event.clientX - oBox.offsetLeft,
 					disH = event.clientY - oBox.offsetTop;
 				event.preventDefault();
 				document.onmousemove = function(ev) {
 					let event = ev || window.event,
 						posX = event.clientX - disW,
-						posY = evnet.clientY - disH;
+						posY = event.clientY - disH;
 					attr.$set('data-x', posX);
 					attr.$set('data-y', posY);
 					oBox.style.left = posX + 'px';
