@@ -34,6 +34,7 @@ go to [http://localhost:7080](http://localhost:7080) in your browser.
 * [swiper](#swiper)
 * [cross-env](#cross-env)
 * [dragImage](#dragImage)
+* [loading](#loading)
 
 
 ## button
@@ -124,7 +125,19 @@ cross-env NODE_ENV='{\"env\":\"normal\",\"branch\":\"test\"}'
 
 It only works fine at pc platform. I am still working on it for it can work on mobile.
 
+## loading
 
+```
+// html
+<w-loading></w-loading>
+
+// js
+ctrl.$inject = ['$scope', 'loadingSrv'];
+export default function ctrl($scope, loadingSrv) {
+	loadingSrv.show();
+	loadingSrv.hide();
+}
+```
 
 
 
