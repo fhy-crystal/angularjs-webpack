@@ -12,6 +12,7 @@ export default function ctrl($scope, $timeout, toastSrv) {
 		mySwiper = null;
 	}
 	$timeout(function() {
+		// not depend on jQuery
 		mySwiper = new Swiper('.swiper-container', {
 			autoplay: 3000,
 			loop: true,
