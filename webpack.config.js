@@ -118,6 +118,7 @@ module.exports = function () {
 			// Render index.html
 			new HtmlWebpackPlugin({
 				template: helpers.root('./src/index.html'),
+				favicon: helpers.root('./favicon.ico'),
 				chunks: ['commons.chunk', 'vendor', 'app'],
 				chunksSortMode: 'dependency'
 			}),

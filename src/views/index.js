@@ -4,6 +4,7 @@ import carousel from './carousel';
 import sortableList from './sortableList';
 import swiper from './swiper';
 import dragImage from './dragImage';
+import loading from './loading';
 
 
 export default angular.module('views', [
@@ -12,5 +13,6 @@ export default angular.module('views', [
 	carousel,
 	sortableList,
 	swiper,
-	dragImage
+	dragImage,
+	loading
 ]).name;
