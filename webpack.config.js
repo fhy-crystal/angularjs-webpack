@@ -162,7 +162,8 @@ module.exports = function () {
 				_commonComponents: path.resolve(APP_PATH, 'commonComponents'),
 				_config: path.resolve(APP_PATH, 'config'),
 				_assets: path.resolve(APP_PATH, 'assets'),
-				_service: path.resolve(APP_PATH, 'service')
+				_service: path.resolve(APP_PATH, 'service'),
+				_directive: path.resolve(APP_PATH, 'directive')
 			}
 		}
 	};

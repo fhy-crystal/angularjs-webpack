@@ -9,6 +9,7 @@ import ngSortable from 'angular-sortable-view';
 import views from '_views';
 import commonComponents from '_commonComponents';
 import commonService from '_service';
+import commonDirective from '_directive';
 
 import appEnv from '_config/env'
 import appRouter from '_config/router';
@@ -24,7 +25,8 @@ angular.module('webapp', [
 	'angular-sortable-view',
 	views,
 	commonComponents,
-	commonService
+	commonService,
+	commonDirective
 ])
 .config(appRouter)
 .constant('ENV', appEnv)
@@ -53,33 +55,4 @@ angular.module('webapp', [
 		})
 	}
 }])
-.directive('moveDirective', function() {
-	let obj = {
-		restrict: 'ECMA',
-		link: function(scope, element, attr) {
-			let oBox = element[0];
-			oBox.onmousedown = function(ev) {
-				let event = ev || window.event,
-					disW = event.clientX - oBox.offsetLeft,
-					disH = event.clientY - oBox.offsetTop;
-				event.preventDefault();
-				document.onmousemove = function(ev) {
-					let event = ev || window.event,
-						posX = event.clientX - disW,
-						posY = event.clientY - disH;
-					attr.$set('data-x', posX);
-					attr.$set('data-y', posY);
-					oBox.style.left = posX + 'px';
-					oBox.style.top = posY + 'px';
-				}
-				document.onmouseup = function() {
-					document.onmousemove = null;
-					document.onmouseup = null;
-					oBox.releaseCapture && oBox.releaseCapture();
-				}
-			}
-			oBox.setCapture && oBox.setCapture();
-		}
-	}
-	return obj;
-})
+
