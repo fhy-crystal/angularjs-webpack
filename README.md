@@ -125,6 +125,8 @@ cross-env NODE_ENV='{\"env\":\"normal\",\"branch\":\"test\"}'
 
 It only works fine at pc platform. I am still working on it for it can work on mobile.
 
+It can alreay work in mobile.——20190326
+
 ## loading
 
 ```
