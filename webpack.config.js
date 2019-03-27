@@ -163,7 +163,8 @@ module.exports = function () {
 				_config: path.resolve(APP_PATH, 'config'),
 				_assets: path.resolve(APP_PATH, 'assets'),
 				_service: path.resolve(APP_PATH, 'service'),
-				_directive: path.resolve(APP_PATH, 'directive')
+				_directive: path.resolve(APP_PATH, 'directive'),
+				_filter: path.resolve(APP_PATH, 'filter')
 			}
 		}
 	};

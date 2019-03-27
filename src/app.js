@@ -10,6 +10,7 @@ import views from '_views';
 import commonComponents from '_commonComponents';
 import commonService from '_service';
 import commonDirective from '_directive';
+import commonFilter from '_filter';
 
 import appEnv from '_config/env'
 import appRouter from '_config/router';
@@ -26,7 +27,8 @@ angular.module('webapp', [
 	views,
 	commonComponents,
 	commonService,
-	commonDirective
+	commonDirective,
+	commonFilter
 ])
 .config(appRouter)
 .constant('ENV', appEnv)
