@@ -4,6 +4,7 @@ import uiBootstrap from 'angular-ui-bootstrap';
 import ngTouch from 'angular-touch';
 import ngInfiniteScroll from 'ng-infinite-scroll';
 import ngSortable from 'angular-sortable-view';
+import ocLazyLoad from 'oclazyload';
 
 
 import views from '_views';
@@ -24,6 +25,7 @@ angular.module('webapp', [
 	ngTouch,
 	ngInfiniteScroll,
 	'angular-sortable-view',
+	ocLazyLoad,
 	views,
 	commonComponents,
 	commonService,

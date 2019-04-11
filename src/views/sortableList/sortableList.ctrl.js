@@ -1,6 +1,6 @@
-import './sortable.less'
+
 ctrl.$inject = ['$scope', 'toastSrv'];
-export default function ctrl($scope, toastSrv) {
+function ctrl($scope, toastSrv) {
 	$scope.activityList = [];
 	$scope.isLoad = false;
 	let timestamp = (new Date()).getTime();
@@ -35,3 +35,5 @@ export default function ctrl($scope, toastSrv) {
 		console.table($item, $partFrom, $partTo, $indexFrom, $indexTo)
 	}
 }
+
+module.exports = angular.module('sortableList').controller('sortableListCtrl', ctrl).name

@@ -32,7 +32,7 @@ module.exports = function () {
 			path: helpers.root('./dist'),
 			publicPath: isProd ? './' : '/',
 			filename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js',
-			chunkFilename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js'
+			chunkFilename: isProd ? '[name].chunk.[chunkhash].js' : '[name].chunk.js'
 		},
 		externals: {
 			jquery: 'jQuery',
@@ -154,7 +154,8 @@ module.exports = function () {
 			contentBase: 'src',
 			colors: true,
 			historyApiFallback: true,
-			port: 7080
+			port: 7080,
+			stats: "errors-only", //表示只打印错误
 		},
 		resolve: {
 			alias: {
