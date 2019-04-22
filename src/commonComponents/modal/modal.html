@@ -1,10 +1,14 @@
-<div class="modal-header">
-	<h3 class="modal-title">I'm a modal!</h3>
-</div>
-<div class="modal-body">
-	{{content}}
-</div>
-<div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-	<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+<div class="userModal" ng-show="isModalShow">
+	<div class="userModal_content">
+		<div class="userModal_header">
+			<h3 class="userModal_title">{{$ctrl.title}}</h3>
+		</div>
+		<div class="userModal_body" ng-transclude>
+
+		</div>
+		<div class="userModal_footer">
+			<w-button text="OK" ng-click="ok()"></w-button>
+			<w-button text="Cancel" ng-click="cancel()"></w-button>
+		</div>
+	</div>
 </div>

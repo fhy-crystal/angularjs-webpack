@@ -35,5 +35,5 @@ function ctrl($scope, toastSrv) {
 		console.table($item, $partFrom, $partTo, $indexFrom, $indexTo)
 	}
 }
-
+// export default ctrl;
 module.exports = angular.module('sortableList').controller('sortableListCtrl', ctrl).name

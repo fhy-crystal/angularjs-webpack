@@ -5,6 +5,7 @@ import sortableList from './sortableList';
 import swiper from './swiper';
 import dragImage from './dragImage';
 import loading from './loading';
+import modal from './modal';
 
 
 export default angular.module('views', [
@@ -14,5 +15,6 @@ export default angular.module('views', [
 	sortableList,
 	swiper,
 	dragImage,
-	loading
+	loading,
+	modal
 ]).name;

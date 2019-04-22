@@ -3,6 +3,7 @@ import './button.less'
 export default angular.module('wButton', [])
 	.component('wButton', {
 		template: `<button type="button" class="wBtn {{$ctrl.size}} {{$ctrl.type}}" ng-class="{'wBtn_disabled': $ctrl.disabled}">
+						
 						<span ng-if="showText">{{$ctrl.text}}</span>
 						<span ng-if="showDText">{{$ctrl.dtext}}</span>
 					</button>`,
@@ -20,6 +21,7 @@ export default angular.module('wButton', [])
 			text: '@',
 			dtext: '<',
 			disabled: '<'
-		}
+		},
+		// transclude: true
 	})
 	.name
