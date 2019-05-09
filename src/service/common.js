@@ -12,12 +12,12 @@ export default function commonJs($window) {
 				theRequest[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1])
 			}
 		}
-	},
+	}
 	// check wechat browser
 	this.wechatBrowser = () => {
 		let ua = navigator.userAgent.toLowerCase();
 		return ua.indexOf('micromessenger') != -1;
-	},
+	}
 	// set session
 	this.setSession = (key, value) => {
 		this.removeSession(key);
@@ -25,17 +25,11 @@ export default function commonJs($window) {
 		$window.sessionStorage.setItem(key, encodeURIComponent(value));
 	}
 	// get session
-	this.getSession = key => {
-		return JSON.parse(decodeURIComponent($window.sessionStorage.getItem(key)));
-	},
+	this.getSession = key => JSON.parse(decodeURIComponent($window.sessionStorage.getItem(key)))
 	// remove session
-	this.removeSession = key => {
-		$window.sessionStorage.removeItem(key);
-	},
+	this.removeSession = key => $window.sessionStorage.removeItem(key)
 	// remove all session 
-	this.removeAllSession = () => {
-		$window.sessionStorage.clear();
-	},
+	this.removeAllSession = () => $window.sessionStorage.clear()
 	// wechat share
 	this.wxShare = (link=$window.location.href, shareTitle='angularjs-webpack', desc='descript', imgUrl="http://www.baidu.com", successcall) => {
 		if (this.wechatBrowser()) {
