@@ -1,8 +1,12 @@
 // extend object
 function extendObj(target, source) {
-	for (var prop in source) {
-		if (source.hasOwnProperty(prop)) {
-			target[prop] = source[prop];
+	if (Object.hasOwnProperty('assign')) {
+		Object.assign(target, source);
+	} else {
+		for (var prop in source) {
+			if (source.hasOwnProperty(prop)) {
+				target[prop] = source[prop];
+			}
 		}
 	}
 }
@@ -18,11 +22,7 @@ export default function httpRequest($http, $q, ENV) {
 		config.headers = {
 			'Content-Type': 'application/json; charset=UTF-8'
 		};
-		if (Object.hasOwnProperty('assign')) {
-			Object.assign(config.headers, header);
-		} else {
-			extendObj(config.headers, header);
-		}
+		extendObj(config.headers, header);
 
 		$http(config)
 			.then(res => {
