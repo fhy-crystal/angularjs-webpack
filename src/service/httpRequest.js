@@ -11,47 +11,65 @@ function extendObj(target, source) {
 	}
 }
 
-httpRequest.$inject = ['$http', '$q', 'ENV'];
+httpRequest.$inject = ['$http', '$q', 'ENV', 'loadingSrv'];
 
-export default function httpRequest($http, $q, ENV) {
+export default function httpRequest($http, $q, ENV, loadingSrv) {
 	var config = {};
 
-	var request = (header) => {
-		var deferred = $q.defer();
+	var request = (header, isLoad) => {
+		// var deferred = $q.defer();
 
-		config.headers = {
-			'Content-Type': 'application/json; charset=UTF-8'
-		};
-		extendObj(config.headers, header);
+		// config.headers = {
+		// 	'Content-Type': 'application/json; charset=UTF-8'
+		// };
+		// extendObj(config.headers, header);
+		// isLoad && loadingSrv.show();
+		// $http(config)
+		// 	.then(res => {
+		// 		isLoad && loadingSrv.hide();
+		// 		deferred.resolve(res);
+		// 	}, err => {
+		// 		isLoad && loadingSrv.hide();
+		// 		deferred.reject(err);
+		// 	})
+		// return deferred.promise;
 
-		$http(config)
-			.then(res => {
-				deferred.resolve(res);
-			}, err => {
-				deferred.reject(err);
-			})
-		return deferred.promise;
+		return new Promise((resolve, reject) => {
+			config.headers = {
+				'Content-Type': 'application/json; charset=UTF-8'
+			};
+			extendObj(config.headers, header);
+			isLoad && loadingSrv.show();
+			$http(config)
+				.then(res => {
+					isLoad && loadingSrv.hide();
+					resolve(res);
+				}, err => {
+					isLoad && loadingSrv.hide();
+					reject(err);
+				})
+		})
 	};
 
-	this.get = (url, params, header = {}) => {
+	this.get = (url, params, header = {}, isLoad = true) => {
 		config = {
 			method: 'GET',
 			url: ENV.ip + url,
 			params: params
 		};
-		return request(header);
+		return request(header, isLoad);
 	};
 
-	this.post = (url, data, header = {}) => {
+	this.post = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
 			url: ENV.ip + url,
 			data: data
 		};
-		return request(header);
+		return request(header, isLoad);
 	};
 
-	this.formPost = (url, data, header = {}) => {
+	this.formPost = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
 			url: ENV.ip + url,
@@ -65,10 +83,10 @@ export default function httpRequest($http, $q, ENV) {
 			}
 		};
 		header['Content-Type'] = 'application/x-www-form-urlencoded';
-		return request(header);
+		return request(header, isLoad);
 	};
 
-	this.upload = (url, data, header = {}) => {
+	this.upload = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
 			url: ENV.ip + url,
@@ -80,10 +98,10 @@ export default function httpRequest($http, $q, ENV) {
 			}
 		};
 		header['Content-Type'] = undefined;
-		return request(header);
+		return request(header, isLoad);
 	};
 
-	this.export = (url, data, filename) => {
+	this.export = (url, data, filename, isLoad) => {
 		var deferred = $q.defer();
 		config = {
 			method: 'POST',
@@ -94,8 +112,10 @@ export default function httpRequest($http, $q, ENV) {
 				'Content-Type': 'application/json; charset=UTF-8'
 			}
 		};
+		isLoad && loadingSrv.show();
 		$http(config)
 			.then(res => {
+				isLoad && loadingSrv.hide();
 				let url = window.URL.createObjectURL(res.data);
 				let link = document.createElement('a');
 				link.style.display = 'none';
@@ -105,6 +125,7 @@ export default function httpRequest($http, $q, ENV) {
 				link.click();
 				document.body.removeChild(link);
 			}, err => {
+				isLoad && loadingSrv.hide();
 				deferred.reject(err);
 			})
 		return deferred.promise;
