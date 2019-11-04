@@ -1,0 +1,87 @@
+.sudokuComponent {
+    position: relative;
+    width: 690px;
+    height: 630px;
+    margin: 80px auto;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: cornflowerblue;
+
+    &_row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_item {
+        position: relative;
+        width: 198px;
+        height: 172px;
+        background-color: #b2ddf4;
+        border-radius: 15px;
+        text-align: center;
+        color: #00609e;
+        font-size: 24px; /*px*/
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: inline-block;
+            width: 198px;
+            height: 155px;
+            background-color: #fff;
+            border-radius: 15px;
+        }
+        &.active {
+            background-color: #fcde70;
+            color: #ff8400;
+            &:before {
+                background-color: #fff4cc;
+            }
+        }
+
+        &__content {
+            position: relative;
+
+            .contentTitle {
+                margin: auto;
+                width: 190px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+    &_btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 198px;
+        height: 172px;
+        line-height: 155px;
+        border-radius: 15px;
+        text-align: center;
+        background-color: #8ab239;
+        color: #2e4402;
+        font-size: 38px; /*px*/
+        font-weight: bold;
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: inline-block;
+            width: 198px;
+            height: 155px;
+            border-radius: 15px;
+            background-color: #a4ce4e;
+        }
+    }
+}

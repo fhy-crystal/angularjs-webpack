@@ -42,11 +42,19 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 			isLoad && loadingSrv.show();
 			$http(config)
 				.then(res => {
-					isLoad && loadingSrv.hide();
-					resolve(res);
+					if (res.data.statusCode === 200) {
+						resolve(res.data);
+					} else {
+						reject(res.data);
+					}
 				}, err => {
+					console.log(err)
+					reject({
+						desc: '网络错误，请稍后再试'
+					});
+				})
+				.finally(() => {
 					isLoad && loadingSrv.hide();
-					reject(err);
 				})
 		})
 	};

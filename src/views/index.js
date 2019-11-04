@@ -6,6 +6,7 @@ import swiper from './swiper';
 import dragImage from './dragImage';
 import loading from './loading';
 import modal from './modal';
+import lottery from './lottery';
 
 
 export default angular.module('views', [
@@ -16,5 +17,6 @@ export default angular.module('views', [
 	swiper,
 	dragImage,
 	loading,
-	modal
+	modal,
+	lottery
 ]).name;
