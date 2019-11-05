@@ -62,7 +62,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 	this.get = (url, params, header = {}, isLoad = true) => {
 		config = {
 			method: 'GET',
-			url: ENV.ip + url,
+			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			params: params
 		};
 		return request(header, isLoad);
@@ -71,7 +71,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 	this.post = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
-			url: ENV.ip + url,
+			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			data: data
 		};
 		return request(header, isLoad);
@@ -80,7 +80,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 	this.formPost = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
-			url: ENV.ip + url,
+			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			data: data,
 			transformRequest: function(obj) {
 				let str = [];
@@ -97,7 +97,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 	this.upload = (url, data, header = {}, isLoad = true) => {
 		config = {
 			method: 'POST',
-			url: ENV.ip + url,
+			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			data: data,
 			transformRequest: function(data) {
 				var formData = new FormData();
@@ -113,7 +113,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		var deferred = $q.defer();
 		config = {
 			method: 'POST',
-			url: ENV.ip + url,
+			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			data: data,
 			responseType: 'blob',
 			headers: {
