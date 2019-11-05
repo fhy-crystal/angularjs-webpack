@@ -1,8 +1,7 @@
-import '../../assets//style/sudoku.less'
-import httpRequest from '../../service/httpRequest';
+import '../../assets/style/sudoku.less'
 
-ctrl.$inject = ['$scope', '$timeout', '$compile', 'httpRequestSrv', 'toastSrv'];
-export default function ctrl($scope, $timeout, $compile, httpRequestSrv, toastSrv) {
+ctrl.$inject = ['$scope', '$compile', 'httpRequestSrv', 'toastSrv'];
+export default function ctrl($scope, $compile, httpRequestSrv, toastSrv) {
     // $scope.lotteryProds = new Array(8);
     // for (let i = 0; i < $scope.lotteryProds.length; i++) {
     //     $scope.lotteryProds[i] = {
@@ -39,7 +38,7 @@ export default function ctrl($scope, $timeout, $compile, httpRequestSrv, toastSr
                 resolve(res.data.data.order);
             }, err => {
                 reject(err);
-                console.log(err);
+                toastSrv(err);
             })
         })
         

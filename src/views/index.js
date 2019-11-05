@@ -7,6 +7,7 @@ import dragImage from './dragImage';
 import loading from './loading';
 import modal from './modal';
 import lottery from './lottery';
+import slideFollow from './slideFollow';
 
 
 export default angular.module('views', [
@@ -18,5 +19,6 @@ export default angular.module('views', [
 	dragImage,
 	loading,
 	modal,
-	lottery
+	lottery,
+	slideFollow
 ]).name;
