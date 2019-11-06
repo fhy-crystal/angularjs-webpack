@@ -34,7 +34,12 @@ angular.module('webapp', [
 ])
 .config(appRouter)
 .constant('ENV', appEnv)
-.run(['$location', 'httpRequestSrv', 'commonSrv', 'toastSrv', function($location, httpRequestSrv, commonSrv, toastSrv) {
+.run(['$rootScope', '$location', 'httpRequestSrv', 'commonSrv', 'toastSrv', function ($rootScope, $location, httpRequestSrv, commonSrv, toastSrv) {
+	// ui-router 切换路由后页面回不到顶部的解决办法 autoscroll 不起作用的时候
+	$rootScope.$on('$stateChangeSuccess', function() {
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
+	})
+
 	let isWechat = commonSrv.wechatBrowser();
 	if (isWechat) {
 		let params = {

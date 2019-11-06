@@ -15,6 +15,7 @@
 	<body ng-app="webapp">
 		<w-loading></w-loading>
 		<w-toast></w-toast>
-		<div ui-view="mainContent"></div>
+		<!-- autoscroll 解决路由跳转时滚动条不回顶部问题 -->
+		<div ui-view="mainContent" autoscroll></div>
 	</body>
 </html>
