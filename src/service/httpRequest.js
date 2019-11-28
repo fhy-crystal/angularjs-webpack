@@ -102,7 +102,7 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 			data: data,
 			transformRequest: function(data) {
 				let formData = new FormData();
-				if (Object.keys(data) > 0) {
+				if (Object.keys(data).length > 0) {
 					for (let key in data) {
 						formData.append(key, data[key]);
 					}

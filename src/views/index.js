@@ -8,6 +8,7 @@ import loading from './loading';
 import modal from './modal';
 import lottery from './lottery';
 import slideFollow from './slideFollow';
+import upload from './upload';
 
 
 export default angular.module('views', [
@@ -20,5 +21,6 @@ export default angular.module('views', [
 	loading,
 	modal,
 	lottery,
-	slideFollow
+	slideFollow,
+	upload
 ]).name;
