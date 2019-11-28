@@ -26,11 +26,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		// isLoad && loadingSrv.show();
 		// $http(config)
 		// 	.then(res => {
-		// 		isLoad && loadingSrv.hide();
 		// 		deferred.resolve(res);
 		// 	}, err => {
-		// 		isLoad && loadingSrv.hide();
 		// 		deferred.reject(err);
+		// 	})
+		// 	.finally(() => {
+		// 		isLoad && loadingSrv.hide();
 		// 	})
 		// return deferred.promise;
 
@@ -100,8 +101,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
 			data: data,
 			transformRequest: function(data) {
-				var formData = new FormData();
-				formData.append('file', data);
+				let formData = new FormData();
+				if (Object.keys(data) > 0) {
+					for (let key in data) {
+						formData.append(key, data[key]);
+					}
+				}
 				return formData;
 			}
 		};
@@ -123,7 +128,6 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		isLoad && loadingSrv.show();
 		$http(config)
 			.then(res => {
-				isLoad && loadingSrv.hide();
 				let url = window.URL.createObjectURL(res.data);
 				let link = document.createElement('a');
 				link.style.display = 'none';
@@ -133,8 +137,10 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 				link.click();
 				document.body.removeChild(link);
 			}, err => {
-				isLoad && loadingSrv.hide();
 				deferred.reject(err);
+			})
+			.finally(() => {
+				isLoad && loadingSrv.hide();
 			})
 		return deferred.promise;
 	}
