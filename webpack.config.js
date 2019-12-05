@@ -27,6 +27,7 @@ module.exports = function () {
 				'lib-flexible'
 			],
 			'app': './app.js',
+			'index2': './index2.js'
 		},
 		output: {
 			path: helpers.root('./dist'),
@@ -105,21 +106,33 @@ module.exports = function () {
 			new webpack.DefinePlugin({
 				__PRO_ENV__: JSON.parse(JSON.stringify(process.env.NODE_ENV))
 			}),
-			// vendor
+			//自定义的公共模块(单页面不需要)
 			new webpack.optimize.CommonsChunkPlugin({
 				name: 'commons.chunk',
-				chunks: ['app']
+				chunks: ['app', 'index2']
 			}),
+			// vendor:第三方库, runtime:webpack运行文件
 			new webpack.optimize.CommonsChunkPlugin({
-				name: 'vendor', 
-				filename: isProd ? 'vendor.[chunkhash].js' : 'vendor.bundle.js'
+				name: ['vendor', 'runtime'],
+				filename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js',
+				minChunks: Infinity
 			}),
+			
 			// Reference: https://github.com/ampedandwired/html-webpack-plugin
 			// Render index.html
 			new HtmlWebpackPlugin({
+				filename: 'index.html',
 				template: helpers.root('./src/index.html'),
 				favicon: helpers.root('./favicon.ico'),
-				chunks: ['commons.chunk', 'vendor', 'app'],
+				chunks: ['runtime', 'vendor', 'commons.chunk', 'app'],
+				chunksSortMode: 'dependency'
+			}),
+			// Render index2.html
+			new HtmlWebpackPlugin({
+				filename: 'index2.html',
+				template: helpers.root('./src/index2.html'),
+				favicon: helpers.root('./favicon.ico'),
+				chunks: ['runtime', 'vendor', 'commons.chunk', 'index2'],
 				chunksSortMode: 'dependency'
 			}),
 			// Reference: https://github.com/webpack/extract-text-webpack-plugin
