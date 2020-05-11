@@ -60,7 +60,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		})
 	};
 
-	this.get = (url, params, header = {}, isLoad = true) => {
+	this.get = ({
+		url = '', 
+		params = {}, 
+		header = {}, 
+		isLoad = true
+	} = {}) => {
 		config = {
 			method: 'GET',
 			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
@@ -69,7 +74,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		return request(header, isLoad);
 	};
 
-	this.post = (url, data, header = {}, isLoad = true) => {
+	this.post = ({
+		url = '',
+		data = {},
+		header = {},
+		isLoad = true
+	} = {}) => {
 		config = {
 			method: 'POST',
 			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
@@ -78,7 +88,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		return request(header, isLoad);
 	};
 
-	this.formPost = (url, data, header = {}, isLoad = true) => {
+	this.formPost = ({
+		url = '', 
+		data = {}, 
+		header = {}, 
+		isLoad = true
+	} = {}) => {
 		config = {
 			method: 'POST',
 			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
@@ -95,7 +110,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		return request(header, isLoad);
 	};
 
-	this.upload = (url, data, header = {}, isLoad = true) => {
+	this.upload = ({
+		url = '',
+		data = {},
+		header = {},
+		isLoad = true
+	} = {}) => {
 		config = {
 			method: 'POST',
 			url: /http/.test(url) ? url : `${ENV.ip}${url}`,
@@ -114,7 +134,12 @@ export default function httpRequest($http, $q, ENV, loadingSrv) {
 		return request(header, isLoad);
 	};
 
-	this.export = (url, data, filename, isLoad) => {
+	this.export = ({
+		url = '', 
+		data = {}, 
+		filename = '', 
+		isLoad = true
+	} = {}) => {
 		var deferred = $q.defer();
 		config = {
 			method: 'POST',

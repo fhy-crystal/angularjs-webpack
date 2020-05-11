@@ -10,10 +10,13 @@ export default function ctrl($scope, $compile, httpRequestSrv, toastSrv) {
     // }
 
     // get lottery products
-    httpRequestSrv.post('/api/v1/wd/lottery/activity/info', {
-        "activityCode": "DOUBLE11_NEW", 
-        "identityId": "330106199311103025", 
-        "customerId": "a82bb97161514809b7982b902668955e"
+    httpRequestSrv.post({
+        url: '/api/v1/wd/lottery/activity/info', 
+        data: {
+            "activityCode": "DOUBLE11_NEW", 
+            "identityId": "330106199311103025", 
+            "customerId": "a82bb97161514809b7982b902668955e"
+        }
     })
     .then(res => {
         if (res.statusCode == 200) {
@@ -29,9 +32,12 @@ export default function ctrl($scope, $compile, httpRequestSrv, toastSrv) {
     $scope.startLottery = function () {
         console.log('start click');
         return new Promise((resolve, reject) => {
-            httpRequestSrv.post('/api/v1/wd/lotteryDraw/draw', {
-                "loterActCode": "DOUBLE11_NEW",
-                "customerId": "a82bb97161514809b7982b902668955e"
+            httpRequestSrv.post({
+                url: '/api/v1/wd/lotteryDraw/draw', 
+                data: {
+                    "loterActCode": "DOUBLE11_NEW",
+                    "customerId": "a82bb97161514809b7982b902668955e"
+                }
             })
             .then(res => {
                 $scope.winInfo = res.data.data;

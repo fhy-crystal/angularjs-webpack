@@ -5,8 +5,11 @@ export default function ctrl($scope, httpRequestSrv, toastSrv) {
 
     function uploadFileHandler() {
         return function(ele) {
-            httpRequestSrv.upload('/api/v1/wd/common/image', {
-                image: ele.files[0]
+            httpRequestSrv.upload({
+                url: '/api/v1/wd/common/image', 
+                data: {
+                    image: ele.files[0]
+                }
             }).then(res => {
                 console.log(res.data)
             }, err => {

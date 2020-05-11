@@ -8,7 +8,9 @@ export default function ctrl($scope, toastSrv, httpRequestSrv) {
 	}
 
 	$scope.sendRequest = () => {
-		httpRequestSrv.get('/api/v1/wd/products/353473807EF845649ACCF49DAA1DB777/alltype/two')
+		httpRequestSrv.get({
+			url: '/api/v1/wd/products/353473807EF845649ACCF49DAA1DB777/alltype/two'
+		})
 			.then(res => {
 				console.log(res);
 			}, err => {
