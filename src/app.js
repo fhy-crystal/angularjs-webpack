@@ -63,5 +63,12 @@ angular.module('webapp', [
 			toastSrv(error);
 		})
 	}
+
+	// add viewport-fit
+	let metaEl = document.querySelector('meta[name="viewport"]');
+	if (metaEl) {
+		let content = metaEl.getAttribute('content');
+		metaEl.setAttribute('content', `${content}, viewport-fit=cover`);
+	}
 }])
 
